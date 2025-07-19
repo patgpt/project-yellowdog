@@ -43,6 +43,7 @@ sections:
 ---
 
 ::content-hero{:hero="hero"}
+#
 ::
 
 ::content-features
@@ -51,4 +52,5 @@ sections:
 :features: sections[0].features
 :title: sections[0].title
 ---
+## Hey there
 ::
