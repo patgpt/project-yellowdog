@@ -115,13 +115,17 @@
 </template>
 
 <script setup lang="ts">
-import type { TestimonialType } from "../../../content.config";
-
-interface Props {
+defineProps<{
   title?: string;
   description?: string;
-  testimonials?: TestimonialType[];
-}
-
-defineProps<Props>();
+  testimonials?: Array<{
+    quote: string;
+    author: {
+      name: string;
+      role?: string;
+      company?: string;
+      avatar?: string;
+    };
+  }>;
+}>();
 </script>

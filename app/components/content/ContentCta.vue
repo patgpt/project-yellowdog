@@ -3,12 +3,16 @@
     <v-row justify="center">
       <v-col cols="12" lg="8" class="text-center">
         <!-- Section Header -->
-        <h2 v-if="title" class="text-h3 text-md-h2 font-weight-bold mb-4">
-          {{ title }}
+        <h2
+          v-if="$slots.title || title"
+          mdc-unwrap="h2"
+          class="text-h3 text-md-h2 font-weight-bold mb-4"
+        >
+          <slot name="title">{{ title }}</slot>
         </h2>
 
-        <p v-if="description" class="text-h6 text-medium-emphasis mb-8">
-          {{ description }}
+        <p v-if="$slots.description" class="text-h6 text-medium-emphasis mb-8">
+          <slot name="description">{{ description }}</slot>
         </p>
 
         <!-- CTA Buttons -->
@@ -36,13 +40,17 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from "../../../content.config";
-
-interface Props {
+defineProps<{
   title?: string;
   description?: string;
-  cta?: LinkType[];
-}
-
-defineProps<Props>();
+  cta?: Array<{
+    label?: string;
+    to?: string;
+    target?: string;
+    variant?: "flat" | "text" | "elevated" | "tonal" | "outlined" | "plain";
+    size?: string;
+    color?: string;
+    icon?: string;
+  }>;
+}>();
 </script>

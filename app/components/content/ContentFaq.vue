@@ -39,13 +39,12 @@
 </template>
 
 <script setup lang="ts">
-import type { FaqItemType } from "../../../content.config";
-
-interface Props {
+defineProps<{
   title?: string;
   description?: string;
-  faq?: FaqItemType[];
-}
-
-defineProps<Props>();
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
+}>();
 </script>

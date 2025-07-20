@@ -104,13 +104,26 @@
 </template>
 
 <script setup lang="ts">
-import type { PricingPlanType } from "../../../content.config";
-
-interface Props {
+defineProps<{
   title?: string;
   description?: string;
-  pricing?: PricingPlanType[];
-}
-
-defineProps<Props>();
+  pricing?: Array<{
+    title: string;
+    description?: string;
+    price: string;
+    billing?: string;
+    features?: string[];
+    cta?: {
+      label?: string;
+      to?: string;
+      target?: string;
+      variant?: "flat" | "text" | "elevated" | "tonal" | "outlined" | "plain";
+      size?: string;
+      color?: string;
+      icon?: string;
+    };
+    highlight?: boolean;
+    badge?: string;
+  }>;
+}>();
 </script>

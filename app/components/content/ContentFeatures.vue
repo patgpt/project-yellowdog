@@ -59,13 +59,14 @@
 </template>
 
 <script setup lang="ts">
-import type { FeatureType } from "../../../content.config";
-
-interface Props {
+defineProps<{
   title?: string;
   description?: string;
-  features?: FeatureType[];
-}
-
-defineProps<Props>();
+  features?: Array<{
+    title: string;
+    description: string;
+    icon?: string;
+    image?: string;
+  }>;
+}>();
 </script>

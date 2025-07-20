@@ -57,9 +57,22 @@
 </template>
 
 <script setup lang="ts">
-import type { HeroType } from "../../../content.config";
-
-defineProps<HeroType>();
+defineProps<{
+  heading: string;
+  subheading?: string;
+  image?: string;
+  cta?: Array<{
+    label?: string;
+    to?: string;
+    url?: string;
+    target?: string;
+    variant?: "flat" | "text" | "elevated" | "tonal" | "outlined" | "plain";
+    color?: string;
+    size?: string;
+    icon?: string;
+    external?: boolean;
+  }>;
+}>();
 </script>
 
 <style scoped>
